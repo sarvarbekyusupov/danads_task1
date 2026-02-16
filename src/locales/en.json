@@ -1,0 +1,13 @@
+{
+  "home": {
+    "title": "My Todo App",
+    "summary": "{completed} of {total} todos completed"
+  },
+  "todoInput": {
+    "placeholder": "Add a new todo...",
+    "addButton": "Add"
+  },
+  "todoList": {
+    "empty": "No todos yet. Add one above!"
+  }
+}

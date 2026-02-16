@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { Todo } from '../composables/useTodos'
+import type { Todo } from "../composables/useTodos";
 
 defineProps<{
-  todo: Todo
-}>()
+  todo: Todo;
+}>();
 
 const emit = defineEmits<{
-  toggle: [id: number]
-  remove: [id: number]
-}>()
+  toggle: [id: number];
+  remove: [id: number];
+}>();
 </script>
 
 <template>
@@ -19,7 +19,7 @@ const emit = defineEmits<{
       @change="emit('toggle', todo.id)"
     />
     <span :class="{ completed: todo.completed }">{{ todo.text }}</span>
-    <button class="delete-btn" @click="emit('remove', todo.id)" >×</button>
+    <button class="delete-btn" @click="emit('remove', todo.id)">×</button>
   </li>
 </template>
 

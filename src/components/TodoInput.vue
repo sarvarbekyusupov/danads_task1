@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const emit = defineEmits<{
   addTodo: [text: string]
 }>()
 
+const { t } = useI18n()
 const newTodo = ref('') //reactive variable
 
 const handleSubmit = () => {
@@ -21,9 +23,9 @@ const handleSubmit = () => {
     <input
       v-model="newTodo"
       type="text"
-      placeholder="Add a new todo..."
+      :placeholder="t('todoInput.placeholder')"
     />
-    <button type="submit">Add</button>
+    <button type="submit">{{ t('todoInput.addButton') }}</button>
   </form>
 </template>
 

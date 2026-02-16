@@ -1,0 +1,13 @@
+{
+  "home": {
+    "title": "Mening Todo Dasturim",
+    "summary": "{completed} ta {total} tododan tugatildi"
+  },
+  "todoInput": {
+    "placeholder": "Yangi todo qo'shing...",
+    "addButton": "Qo'shish"
+  },
+  "todoList": {
+    "empty": "Hali todolar yo'q. Yuqorida qo'shing!"
+  }
+}

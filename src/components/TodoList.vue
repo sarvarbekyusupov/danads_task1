@@ -1,15 +1,18 @@
 <script setup lang="ts">
-import type { Todo } from '../composables/useTodos'
-import TodoItem from './TodoItem.vue'
+import type { Todo } from "../composables/useTodos";
+import TodoItem from "./TodoItem.vue";
+import { useI18n } from "vue-i18n";
 
 defineProps<{
-  todos: Todo[]
-}>()
+  todos: Todo[];
+}>();
 
 const emit = defineEmits<{
-  toggle: [id: number]
-  remove: [id: number]
-}>()
+  toggle: [id: number];
+  remove: [id: number];
+}>();
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -22,7 +25,7 @@ const emit = defineEmits<{
       @remove="emit('remove', $event)"
     />
   </ul>
-  <p v-if="todos.length === 0" class="empty">No todos yet. Add one above!</p>
+  <p v-if="todos.length === 0" class="empty">{{ t("todoList.empty") }}</p>
 </template>
 
 <style scoped>

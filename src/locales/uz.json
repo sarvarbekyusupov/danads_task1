@@ -1,0 +1,18 @@
+{
+  "home": {
+    "title": "Mening Todo Dasturim",
+    "summary": "{completed} ta {total} tododan tugatildi",
+    "description": "Bu bosh sahifa",
+    "goToTodos": "Todolarga o'tish"
+  },
+  "todoInput": {
+    "placeholder": "Yangi todo qo'shing...",
+    "addButton": "Qo'shish"
+  },
+  "todoList": {
+    "empty": "Hali todolar yo'q. Yuqorida qo'shing!"
+  },
+  "nav": {
+    "backToHome": "Bosh sahifaga qaytish"
+  }
+}

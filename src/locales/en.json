@@ -1,7 +1,9 @@
 {
   "home": {
     "title": "My Todo App",
-    "summary": "{completed} of {total} todos completed"
+    "summary": "{completed} of {total} todos completed",
+    "description": "This is home page",
+    "goToTodos": "Go to Todos"
   },
   "todoInput": {
     "placeholder": "Add a new todo...",
@@ -9,5 +11,8 @@
   },
   "todoList": {
     "empty": "No todos yet. Add one above!"
+  },
+  "nav": {
+    "backToHome": "Back to Home"
   }
 }

@@ -1,11 +1,6 @@
 <script setup lang="ts">
-import { useTodos } from "../composables/useTodos";
-import TodoInput from "../components/TodoInput.vue";
-import TodoList from "../components/TodoList.vue";
 import { useI18n } from "vue-i18n";
 
-const { todos, addTodo, removeTodo, toggleTodo, completedCount, totalCount } =
-  useTodos();
 const { t, locale } = useI18n();
 
 const toggleLanguage = () => {
@@ -22,16 +17,9 @@ const toggleLanguage = () => {
       </button>
     </div>
 
-    <TodoInput @add-todo="addTodo" />
-
-    <TodoList :todos="todos" @toggle="toggleTodo" @remove="removeTodo" />
-
-    <div class="summary">
-      <p>
-        {{
-          t("home.summary", { completed: completedCount, total: totalCount })
-        }}
-      </p>
+    <div class="content">
+      <p>{{ t("home.description") }}</p>
+      <router-link to="/todos" class="todo-link">{{ t("home.goToTodos") }}</router-link>
     </div>
   </div>
 </template>
@@ -73,9 +61,24 @@ h1 {
   background: #35a372;
 }
 
-.summary {
-  margin-top: 1rem;
+.content {
   text-align: center;
-  color: #666;
+  padding: 2rem 0;
+}
+
+.todo-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #42b883;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.todo-link:hover {
+  background: #35a372;
 }
 </style>

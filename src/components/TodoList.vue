@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Todo } from "../composables/useTodos";
-import TodoItem from "./TodoItem.vue";
+import type { Todo } from "@/composables/useTodos";
+import TodoItem from "@/components/TodoItem.vue";
 import { useI18n } from "vue-i18n";
 
 defineProps<{

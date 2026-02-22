@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Todo } from "../composables/useTodos";
+import type { Todo } from "@/composables/useTodos";
 
 defineProps<{
   todo: Todo;

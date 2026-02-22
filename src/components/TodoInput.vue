@@ -7,7 +7,7 @@ const emit = defineEmits<{
 }>()
 
 const { t } = useI18n()
-const newTodo = ref('') //reactive variable
+const newTodo = ref('')
 
 const handleSubmit = () => {
   if (newTodo.value.trim()) {
@@ -18,8 +18,7 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <form @submit.prevent="handleSubmit">   <!-- prevent avoids relaod when submit works(submit reloads page) which cause loose reactivty of new todo-->
-
+  <form @submit.prevent="handleSubmit">
     <input
       v-model="newTodo"
       type="text"

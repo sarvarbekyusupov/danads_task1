@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useTodos } from "../composables/useTodos";
-import TodoInput from "../components/TodoInput.vue";
-import TodoList from "../components/TodoList.vue";
+import { useTodos } from "@/composables/useTodos";
+import TodoInput from "@/components/TodoInput.vue";
+import TodoList from "@/components/TodoList.vue";
 import { useI18n } from "vue-i18n";
 import { onBeforeRouteLeave } from "vue-router";
 
@@ -13,7 +13,6 @@ const toggleLanguage = () => {
   locale.value = locale.value === "en" ? "uz" : "en";
 };
 
-// Component-level hook - works before leaving the page
 onBeforeRouteLeave((_to, _from, next) => {
   if (todos.value.length > 0) {
     const answer = confirm("You have unsaved todos. Are you sure you want to leave?")

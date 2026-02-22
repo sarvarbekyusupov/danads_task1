@@ -4,11 +4,10 @@ export interface Todo {
   id: number
   text: string
   completed: boolean
-} //meros olib kengaytirsa boladi
-
+} 
 
 export function useTodos() {
-  const todos = ref<Todo[]>([]) //reactivity
+  const todos = ref<Todo[]>([]) 
 
   const addTodo = (text: string) => {
     if (text.trim()) {
@@ -23,8 +22,8 @@ export function useTodos() {
   const removeTodo = (id: number) => {
     const index = todos.value.findIndex((todo) => todo.id === id);
     if (index !== -1) {
-      todos.value.splice(index, 1); //splice(startIndex, deleteCount)
-    } //Agar topilmasa → -1 qaytaradi
+      todos.value.splice(index, 1); 
+    } 
   }
 
   const toggleTodo = (id: number) => {

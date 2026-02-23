@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Todo } from "@/composables/useTodos";
+import type { Todo } from "@/stores/todos";
 import TodoItem from "@/components/TodoItem.vue";
 import { useI18n } from "vue-i18n";
 
@@ -25,7 +25,7 @@ const { t } = useI18n();
       @remove="emit('remove', $event)"
     />
   </ul>
-  <p v-if="todos.length === 0" class="empty">{{ t("todoList.empty") }}</p>
+  <p v-if="todos.length" class="empty">{{ t("todoList.empty") }}</p>
 </template>
 
 <style scoped>

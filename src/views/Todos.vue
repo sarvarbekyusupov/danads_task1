@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { useTodos } from "@/composables/useTodos";
+import { useTodosStore } from "@/stores/todos";
 import TodoInput from "@/components/TodoInput.vue";
 import TodoList from "@/components/TodoList.vue";
 import { useI18n } from "vue-i18n";
 import { onBeforeRouteLeave } from "vue-router";
 
-const { todos, addTodo, removeTodo, toggleTodo, completedCount, totalCount } =
-  useTodos();
+const todosStore = useTodosStore();
 const { t, locale } = useI18n();
 
 const toggleLanguage = () => {
@@ -14,7 +13,7 @@ const toggleLanguage = () => {
 };
 
 onBeforeRouteLeave((_to, _from, next) => {
-  if (todos.value.length > 0) {
+  if (todosStore.todos.length) {
     const answer = confirm("You have unsaved todos. Are you sure you want to leave?")
     if (answer) {
       next()
@@ -40,14 +39,14 @@ onBeforeRouteLeave((_to, _from, next) => {
       <router-link to="/">{{ t("nav.backToHome") }}</router-link>
     </div>
 
-    <TodoInput @add-todo="addTodo" />
+    <TodoInput @add-todo="todosStore.addTodo" />
 
-    <TodoList :todos="todos" @toggle="toggleTodo" @remove="removeTodo" />
+    <TodoList :todos="todosStore.todos" @toggle="todosStore.toggleTodo" @remove="todosStore.removeTodo" />
 
     <div class="summary">
       <p>
         {{
-          t("home.summary", { completed: completedCount, total: totalCount })
+          t("home.summary", { completed: todosStore.completedCount, total: todosStore.totalCount })
         }}
       </p>
     </div>

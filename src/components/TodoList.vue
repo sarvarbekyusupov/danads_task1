@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Todo } from "@/stores/todos";
-import TodoItem from "@/components/TodoItem.vue";
+import type { Todo } from "@/types";
+import { TodoItem } from "@/components";
 import { useI18n } from "vue-i18n";
 
 defineProps<{
@@ -25,21 +25,23 @@ const { t } = useI18n();
       @remove="emit('remove', $event)"
     />
   </ul>
-  <p v-if="todos.length" class="empty">{{ t("todoList.empty") }}</p>
+  <p v-if="!todos.length" class="empty">{{ t("todoList.empty") }}</p>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use "@/assets/variables" as *;
+
 .todo-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  border: 1px solid #ddd;
+  border: 1px solid $border-color;
   border-radius: 4px;
 }
 
 .empty {
   text-align: center;
-  color: #888;
+  color: $text-muted;
   padding: 1rem;
 }
 </style>

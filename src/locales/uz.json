@@ -7,12 +7,22 @@
   },
   "todoInput": {
     "placeholder": "Yangi todo qo'shing...",
-    "addButton": "Qo'shish"
+    "addButton": "Qo'shish",
+    "validation": {
+      "required": "Iltimos, todo matnini kiriting",
+      "min": "Todo kamida 3 ta belgidan iborat bo'lishi kerak"
+    }
   },
   "todoList": {
     "empty": "Hali todolar yo'q. Yuqorida qo'shing!"
   },
   "nav": {
     "backToHome": "Bosh sahifaga qaytish"
+  },
+  "validation": {
+    "required": "{field} maydoni to'ldirilishi shart",
+    "min": "{field} juda qisqa (kamida {min} belgi)",
+    "max": "{field} juda uzun (maksimal {max} belgi)",
+    "invalid": "{field} maydoni noto'g'ri"
   }
 }

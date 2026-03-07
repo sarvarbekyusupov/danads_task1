@@ -1,0 +1,29 @@
+@forward 'variables';
+@use 'variables' as *;
+
+.page-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: $spacing-lg $spacing-base;
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+
+  h1 {
+    color: $primary-color;
+    margin: 0;
+  }
+}
+
+.lang-toggle {
+  @include button-base;
+  background: $primary-color;
+  color: white;
+
+  &:hover {
+    background: $primary-hover;
+  }
+}

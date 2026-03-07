@@ -7,12 +7,22 @@
   },
   "todoInput": {
     "placeholder": "Add a new todo...",
-    "addButton": "Add"
+    "addButton": "Add",
+    "validation": {
+      "required": "Please enter a todo text",
+      "min": "Todo must be at least 3 characters"
+    }
   },
   "todoList": {
     "empty": "No todos yet. Add one above!"
   },
   "nav": {
     "backToHome": "Back to Home"
+  },
+  "validation": {
+    "required": "The field {field} is required",
+    "min": "The field {field} is too short (min {min} chars)",
+    "max": "The field {field} is too long (max {max} chars)",
+    "invalid": "The field {field} is invalid"
   }
 }

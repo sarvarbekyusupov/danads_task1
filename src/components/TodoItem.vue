@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Todo } from "@/stores/todos";
+import type { Todo } from "@/types";
 
 defineProps<{
   todo: Todo;
@@ -23,43 +23,43 @@ const emit = defineEmits<{
   </li>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use "@/assets/variables" as *;
+
 .todo-item {
-  display: flex;
-  align-items: center;
+  @include flex-between;
   gap: 0.5rem;
   padding: 0.5rem;
   border-bottom: 1px solid #eee;
-}
 
-.todo-item:last-child {
-  border-bottom: none;
-}
+  &:last-child {
+    border-bottom: none;
+  }
 
-span {
-  flex: 1;
-}
+  span {
+    flex: 1;
 
-span.completed {
-  text-decoration: line-through;
-  color: #888;
+    &.completed {
+      text-decoration: line-through;
+      color: $text-muted;
+    }
+  }
 }
 
 .delete-btn {
-  background-color: #ff4d4d;
+  @include button-base;
+  background-color: $error-color;
   color: white;
-  border: none;
-  border-radius: 4px;
   width: 24px;
   height: 24px;
-  cursor: pointer;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+  padding: 0;
 
-.delete-btn:hover {
-  background-color: #e60000;
+  &:hover {
+    background-color: $error-hover;
+  }
 }
 </style>

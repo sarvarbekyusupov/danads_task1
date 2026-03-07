@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import { useTodosStore } from "@/stores/todos";
-import TodoInput from "@/components/TodoInput.vue";
-import TodoList from "@/components/TodoList.vue";
+import { useTodosStore } from "@/stores";
+import { TodoInput, TodoList } from "@/components";
 import { useI18n } from "vue-i18n";
+import { usePreferences } from "@/composables";
 import { onBeforeRouteLeave } from "vue-router";
 
 const todosStore = useTodosStore();
-const { t, locale } = useI18n();
-
-const toggleLanguage = () => {
-  locale.value = locale.value === "en" ? "uz" : "en";
-};
+const { t } = useI18n();
+const { language, toggleLanguage } = usePreferences();
 
 onBeforeRouteLeave((_to, _from, next) => {
   if (todosStore.todos.length) {
@@ -27,11 +24,11 @@ onBeforeRouteLeave((_to, _from, next) => {
 </script>
 
 <template>
-  <div class="todos">
+  <div class="todos page-container">
     <div class="header">
       <h1>{{ t("home.title") }}</h1>
       <button class="lang-toggle" @click="toggleLanguage">
-        {{ locale === "en" ? "UZ" : "EN" }}
+        {{ language === "en" ? "UZ" : "EN" }}
       </button>
     </div>
 
@@ -53,60 +50,26 @@ onBeforeRouteLeave((_to, _from, next) => {
   </div>
 </template>
 
-<style scoped>
-.todos {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  gap: 1rem;
-}
-
-h1 {
-  color: #42b883;
-  margin: 0;
-}
-
-.lang-toggle {
-  background: #42b883;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: background 0.2s;
-  white-space: nowrap;
-}
-
-.lang-toggle:hover {
-  background: #35a372;
-}
+<style lang="scss" scoped>
+@use "@/assets/shared" as *;
 
 .nav-link {
   margin-bottom: 1.5rem;
-}
 
-.nav-link a {
-  color: #42b883;
-  text-decoration: none;
-  font-weight: 600;
-}
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    font-weight: 600;
 
-.nav-link a:hover {
-  text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .summary {
   margin-top: 1rem;
   text-align: center;
-  color: #666;
+  color: $text-secondary;
 }
 </style>

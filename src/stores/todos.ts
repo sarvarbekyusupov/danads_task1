@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { Todo } from '@/types'
+import type { Todo, TodoActivity } from '@/types'
 import { STORAGE_KEYS } from '@/constants'
 import { useApi } from '@/composables'
 
@@ -10,6 +10,7 @@ export const useTodosStore = defineStore(
     const { wrapApi } = useApi()
     // State
     const todos = ref<Todo[]>([])
+    const recentActions = ref<TodoActivity[]>([])
 
     // Getters
     const completedCount = computed(() =>
@@ -20,21 +21,41 @@ export const useTodosStore = defineStore(
 
     const incompleteCount = computed(() => totalCount.value - completedCount.value)
 
+    // Helper to log actions
+    function logAction(type: TodoActivity['type'], text?: string) {
+      recentActions.value.unshift({
+        id: Date.now(),
+        type,
+        text,
+        timestamp: Date.now(),
+      })
+      // Keep only last 10 actions
+      if (recentActions.value.length > 10) {
+        recentActions.value.pop()
+      }
+    }
+
     // Actions
     function addTodo(text: string) {
       if (text.trim()) {
-        todos.value.push({
+        const newTodo = {
           id: Date.now(),
           text: text.trim(),
           completed: false,
-        })
+        }
+        todos.value.push(newTodo)
+        logAction('added', newTodo.text)
       }
     }
 
     function removeTodo(id: number) {
       const index = todos.value.findIndex((todo) => todo.id === id)
       if (index !== -1) {
-        todos.value.splice(index, 1)
+        const removedTodo = todos.value[index]
+        if (removedTodo) {
+          todos.value.splice(index, 1)
+          logAction('removed', removedTodo.text)
+        }
       }
     }
 
@@ -42,11 +63,16 @@ export const useTodosStore = defineStore(
       const todo = todos.value.find((todo) => todo.id === id)
       if (todo) {
         todo.completed = !todo.completed
+        logAction('toggled', todo.text)
       }
     }
 
     function clearCompleted() {
-      todos.value = todos.value.filter((todo) => !todo.completed)
+      const completedOnes = todos.value.filter((todo) => todo.completed)
+      if (completedOnes.length > 0) {
+        todos.value = todos.value.filter((todo) => !todo.completed)
+        logAction('cleared', `${completedOnes.length} todos`)
+      }
     }
 
     function updateTodoText(id: number, newText: string) {
@@ -76,6 +102,7 @@ export const useTodosStore = defineStore(
 
     return {
       todos,
+      recentActions,
       completedCount,
       totalCount,
       incompleteCount,
@@ -91,6 +118,7 @@ export const useTodosStore = defineStore(
   {
     $persist: {
       key: STORAGE_KEYS.TODOS,
+      include: ['todos', 'recentActions']
     },
   }
 )

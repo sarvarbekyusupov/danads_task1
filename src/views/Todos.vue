@@ -32,8 +32,9 @@ onBeforeRouteLeave((_to, _from, next) => {
       </button>
     </div>
 
-    <div class="nav-link">
+    <div class="nav-links">
       <router-link to="/">{{ t("nav.backToHome") }}</router-link>
+      <router-link to="/dashboard">{{ t("dashboard.goToDashboard") }}</router-link>
     </div>
 
     <TodoInput @add-todo="todosStore.addTodo" />
@@ -53,13 +54,19 @@ onBeforeRouteLeave((_to, _from, next) => {
 <style lang="scss" scoped>
 @use "@/assets/shared" as *;
 
-.nav-link {
+.nav-links {
   margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
 
   a {
     color: $primary-color;
     text-decoration: none;
     font-weight: 600;
+
+    &:last-child {
+      color: #3b82f6;
+    }
 
     &:hover {
       text-decoration: underline;

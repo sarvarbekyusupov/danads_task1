@@ -24,6 +24,22 @@
     "error": "Error",
     "close": "Close"
   },
+  "dashboard": {
+    "title": "Dashboard",
+    "stats": "Statistics",
+    "activity": "Recent Activity",
+    "quickActions": "Quick Actions",
+    "total": "Total",
+    "completed": "Completed",
+    "incomplete": "Incomplete",
+    "clearCompleted": "Clear Completed",
+    "refresh": "Refresh",
+    "actionAdded": "Added: {text}",
+    "actionToggled": "Toggled: {text}",
+    "actionRemoved": "Removed: {text}",
+    "actionCleared": "Cleared: {text}",
+    "goToDashboard": "Go to Dashboard"
+  },
   "validation": {
     "required": "The field {field} is required",
     "min": "The field {field} is too short (min {min} chars)",

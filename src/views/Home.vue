@@ -31,6 +31,7 @@ const triggerError = () => {
       <p>{{ t("home.description") }}</p>
       <div class="actions">
         <router-link to="/todos" class="todo-link">{{ t("home.goToTodos") }}</router-link>
+        <router-link to="/dashboard" class="dashboard-link">{{ t("dashboard.goToDashboard") }}</router-link>
         <button class="test-btn loading" @click="triggerLoading">Test Loading</button>
         <button class="test-btn error" @click="triggerError">Test Error</button>
       </div>
@@ -65,6 +66,19 @@ const triggerError = () => {
 
   &:hover {
     background: $primary-hover;
+  }
+}
+
+.dashboard-link {
+  @include button-base;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    background: #2563eb;
   }
 }
 

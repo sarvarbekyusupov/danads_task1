@@ -6,6 +6,8 @@ $error-hover: #e60000;
 $border-color: #ddd;
 $text-secondary: #666;
 $text-muted: #888;
+$widget-bg: #ffffff;
+$widget-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
 // Spacing
 $spacing-base: 1rem;
@@ -32,4 +34,12 @@ $spacing-lg: 2rem;
     opacity: 0.7;
     cursor: not-allowed;
   }
+}
+
+@mixin card-base {
+  background: $widget-bg;
+  border-radius: 12px;
+  box-shadow: $widget-shadow;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }

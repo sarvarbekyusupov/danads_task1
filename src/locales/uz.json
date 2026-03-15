@@ -24,6 +24,22 @@
     "error": "Xato",
     "close": "Yopish"
   },
+  "dashboard": {
+    "title": "Boshqaruv paneli",
+    "stats": "Statistika",
+    "activity": "Oxirgi harakatlar",
+    "quickActions": "Tezkor harakatlar",
+    "total": "Jami",
+    "completed": "Bajarilgan",
+    "incomplete": "Bajarilmagan",
+    "clearCompleted": "Bajarilganlarni o'chirish",
+    "refresh": "Yangilash",
+    "actionAdded": "Qo'shildi: {text}",
+    "actionToggled": "O'zgartirildi: {text}",
+    "actionRemoved": "O'chirildi: {text}",
+    "actionCleared": "Tozalandi: {text}",
+    "goToDashboard": "Boshqaruv paneliga o'tish"
+  },
   "validation": {
     "required": "{field} maydoni to'ldirilishi shart",
     "min": "{field} juda qisqa (kamida {min} belgi)",

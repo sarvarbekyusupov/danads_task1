@@ -19,6 +19,11 @@
   "nav": {
     "backToHome": "Bosh sahifaga qaytish"
   },
+  "global": {
+    "loading": "Yuklanmoqda...",
+    "error": "Xato",
+    "close": "Yopish"
+  },
   "validation": {
     "required": "{field} maydoni to'ldirilishi shart",
     "min": "{field} juda qisqa (kamida {min} belgi)",

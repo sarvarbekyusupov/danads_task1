@@ -19,6 +19,11 @@
   "nav": {
     "backToHome": "Back to Home"
   },
+  "global": {
+    "loading": "Loading...",
+    "error": "Error",
+    "close": "Close"
+  },
   "validation": {
     "required": "The field {field} is required",
     "min": "The field {field} is too short (min {min} chars)",

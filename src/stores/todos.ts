@@ -54,6 +54,24 @@ export const useTodosStore = defineStore(
       }
     }
 
+    async function fetchTodos() {
+      // Simulate API call
+      return new Promise<void>((resolve) => {
+        setTimeout(() => {
+          resolve()
+        }, 2000)
+      })
+    }
+
+    async function testError() {
+      // Simulate API error
+      return new Promise<void>((_, reject) => {
+        setTimeout(() => {
+          reject(new Error('Failed to fetch todos from server'))
+        }, 1500)
+      })
+    }
+
     return {
       todos,
       completedCount,
@@ -64,6 +82,8 @@ export const useTodosStore = defineStore(
       toggleTodo,
       clearCompleted,
       updateTodoText,
+      fetchTodos,
+      testError,
     }
   },
   {

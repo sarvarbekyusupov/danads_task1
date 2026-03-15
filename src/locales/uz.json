@@ -1,0 +1,49 @@
+{
+  "home": {
+    "title": "Mening Todo Dasturim",
+    "summary": "{completed} ta {total} tododan tugatildi",
+    "description": "Bu bosh sahifa",
+    "goToTodos": "Todolarga o'tish"
+  },
+  "todoInput": {
+    "placeholder": "Yangi todo qo'shing...",
+    "addButton": "Qo'shish",
+    "validation": {
+      "required": "Iltimos, todo matnini kiriting",
+      "min": "Todo kamida 3 ta belgidan iborat bo'lishi kerak"
+    }
+  },
+  "todoList": {
+    "empty": "Hali todolar yo'q. Yuqorida qo'shing!"
+  },
+  "nav": {
+    "backToHome": "Bosh sahifaga qaytish"
+  },
+  "global": {
+    "loading": "Yuklanmoqda...",
+    "error": "Xato",
+    "close": "Yopish"
+  },
+  "dashboard": {
+    "title": "Boshqaruv paneli",
+    "stats": "Statistika",
+    "activity": "Oxirgi harakatlar",
+    "quickActions": "Tezkor harakatlar",
+    "total": "Jami",
+    "completed": "Bajarilgan",
+    "incomplete": "Bajarilmagan",
+    "clearCompleted": "Bajarilganlarni o'chirish",
+    "refresh": "Yangilash",
+    "actionAdded": "Qo'shildi: {text}",
+    "actionToggled": "O'zgartirildi: {text}",
+    "actionRemoved": "O'chirildi: {text}",
+    "actionCleared": "Tozalandi: {text}",
+    "goToDashboard": "Boshqaruv paneliga o'tish"
+  },
+  "validation": {
+    "required": "{field} maydoni to'ldirilishi shart",
+    "min": "{field} juda qisqa (kamida {min} belgi)",
+    "max": "{field} juda uzun (maksimal {max} belgi)",
+    "invalid": "{field} maydoni noto'g'ri"
+  }
+}

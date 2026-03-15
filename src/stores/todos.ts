@@ -2,10 +2,12 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import type { Todo } from '@/types'
 import { STORAGE_KEYS } from '@/constants'
+import { useApi } from '@/composables'
 
 export const useTodosStore = defineStore(
   'todos',
   () => {
+    const { wrapApi } = useApi()
     // State
     const todos = ref<Todo[]>([])
 
@@ -56,20 +58,20 @@ export const useTodosStore = defineStore(
 
     async function fetchTodos() {
       // Simulate API call
-      return new Promise<void>((resolve) => {
+      return wrapApi(new Promise<void>((resolve) => {
         setTimeout(() => {
           resolve()
         }, 2000)
-      })
+      }))
     }
 
     async function testError() {
       // Simulate API error
-      return new Promise<void>((_, reject) => {
+      return wrapApi(new Promise<void>((_, reject) => {
         setTimeout(() => {
           reject(new Error('Failed to fetch todos from server'))
         }, 1500)
-      })
+      }))
     }
 
     return {
